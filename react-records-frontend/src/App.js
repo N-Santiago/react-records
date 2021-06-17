@@ -1,5 +1,5 @@
 import React from 'react';
-// import CategoriesContainer from './containers/CategoriesContainer'
+import CategoriesContainer from './containers/CategoriesContainer'
 
 class App extends React.Component {
 
@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>React Records</h1>
-        {/* < CategoriesContainer /> */}
+        < CategoriesContainer />
       </div>
     )
   }
