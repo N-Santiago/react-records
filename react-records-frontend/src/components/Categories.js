@@ -1,12 +1,14 @@
 import React from 'react'
-import Category from './Category'
+import {Link} from 'react-router-dom'
 
 const Categories = (props) => {
 
     return (
         <div>
-            {this.props.categories.map((category) => (
-                <div key={category.id}><Category category={category}></Category></div>
+            {props.categories.map((category) => (
+                <div key={category.id}>
+                    <h2><Link to={`/categories/${category.id}`}>{category.name}</Link></h2>
+                </div>
             ))}
         </div>        
     )
