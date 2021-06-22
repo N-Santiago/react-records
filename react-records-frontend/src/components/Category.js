@@ -1,4 +1,5 @@
 import React from 'react'
+import AlbumsContainer from '../containers/AlbumsContainer'
 
 const Category = (props) => {
 
@@ -7,6 +8,7 @@ const Category = (props) => {
     return (
         <div>
             <h2>{category ? category.name : "We didn't find any category or maybe it doesn't exist yet."}</h2> 
+            < AlbumsContainer category={category} />
         </div>
     )
 }
