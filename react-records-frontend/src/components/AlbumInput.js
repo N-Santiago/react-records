@@ -6,6 +6,7 @@ class AlbumInput extends React.Component {
     state = {
         title: '',
         artist: '',
+        album_image: '',
         genre: '',
         description: '',
         category_id: '1',
@@ -23,6 +24,7 @@ class AlbumInput extends React.Component {
         this.setState({
             title: '',
             artist: '',
+            album_image: '',
             genre: '',
             description: '',
             category_id: '',
@@ -40,6 +42,8 @@ class AlbumInput extends React.Component {
                     <input type="text" placeholder='Title' value={this.state.title} name='title' onChange={this.handleChange} /><br /><br />
                     <label>Artist:</label>
                     <input type="text" placeholder='Artist' value={this.state.artist} name='artist' onChange={this.handleChange} /><br /><br />
+                    <label>Image:</label>
+                    <input type='file' placeholder='Image' value={this.state.album_image} name='album_image' onChange={this.handleChange} enctype="multipart/form-data" /><br /><br />
                     <label>Genre:</label>
                     <input type='text' placeholder='Genre' value={this.state.genre} name='genre' onChange={this.handleChange} /><br /><br />
                     <label>Description:</label>
