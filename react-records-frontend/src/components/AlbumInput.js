@@ -6,11 +6,11 @@ class AlbumInput extends React.Component {
     state = {
         title: '',
         artist: '',
-        album_image: '',
+        image: '',
         genre: '',
         description: '',
-        category_id: '1',
-        condition: 'Sealed',
+        category_id: 'Choose Category',
+        condition: 'Choose Album Condition',
         price: ''
     }
 
@@ -20,11 +20,12 @@ class AlbumInput extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addAlbum(this.state, this.props.history);
+        const formData = new FormData(e.target) 
+        this.props.addAlbum(formData, this.props.history);
         this.setState({
             title: '',
             artist: '',
-            album_image: '',
+            image: '',
             genre: '',
             description: '',
             category_id: '',
@@ -43,19 +44,21 @@ class AlbumInput extends React.Component {
                     <label>Artist:</label>
                     <input type="text" placeholder='Artist' value={this.state.artist} name='artist' onChange={this.handleChange} /><br /><br />
                     <label>Image:</label>
-                    <input type='file' placeholder='Image' value={this.state.album_image} name='album_image' onChange={this.handleChange} enctype="multipart/form-data" /><br /><br />
+                    <input type='file' placeholder='Image' value={this.state.album_image} name='image' onChange={this.handleChange} accept='image/*' encType="multipart/form-data" /><br /><br />
                     <label>Genre:</label>
                     <input type='text' placeholder='Genre' value={this.state.genre} name='genre' onChange={this.handleChange} /><br /><br />
                     <label>Description:</label>
                     <input type="text" placeholder='Description' value={this.state.description} name='description' onChange={this.handleChange} /><br /><br />
                     <label>Category:</label>
-                    <select name="category" value={this.state.category_id} name='category_id' onChange={this.handleChange}>
+                    <select name="category_id" value={this.state.category_id} placeholder='Choose Category' onChange={this.handleChange}>
+                        <option>Choose Category</option>
                         <option value="1">Vinyl</option>
                         <option value="2">CD</option>
                         <option value="3">Cassette</option>
                     </select>
                     <label>Condition:</label>
-                    <select name="condition" value={this.state.condition} name='condition' onChange={this.handleChange}>
+                    <select name="condition" value={this.state.condition} placeholder='Choose Album Condition' onChange={this.handleChange}>
+                        <option>Choose Album Condition</option>
                         <option value="sealed">Sealed</option>
                         <option value="mint">Mint (M)</option>
                         <option value="near-mint">Near Mint (NM)</option>

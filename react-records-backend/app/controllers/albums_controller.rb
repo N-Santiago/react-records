@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
     def index 
-        albums = Album.all
+        albums = Album.all.with_attached_image
         render json: albums 
     end 
 
@@ -20,15 +20,12 @@ class AlbumsController < ApplicationController
 
     def destroy
         album = Album.find(params[:id])
-
-        if album.destroy
-            render json: { id: album.id }
-        end
+        album.destroy
     end 
 
     private
 
     def album_params
-        params.require(:album).permit(:title, :artist, :album_image, :genre, :condition, :description, :price, :category_id)
+        params.permit(:title, :artist, :image, :genre, :condition, :description, :price, :category_id)
     end 
 end
